@@ -189,6 +189,22 @@ p{margin:0}
 .reason .ph{border-radius:14px;background:#fff;border:1px solid var(--line)}
 .reason .ph img{object-fit:contain;padding:8px}
 .reason .ph.noimg{background:linear-gradient(160deg,var(--plum),var(--plum-deep));border:0}
+section[id],main[id]{scroll-margin-top:96px}
+/* resident portal */
+.portal{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,64px);align-items:center}
+.portal .head{margin-bottom:0}
+.portal-steps{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:12px;max-width:52ch}
+.portal-steps li{padding-left:22px;position:relative;color:var(--muted)}
+.portal-steps li::before{content:"";position:absolute;left:0;top:.55em;width:9px;height:9px;background:var(--plum);transform:rotate(45deg)}
+.portal-steps b{color:var(--text)}
+.portal-card{position:relative;overflow:hidden;background:linear-gradient(150deg,var(--plum) 0%,var(--plum-deep) 55%,var(--ink) 100%);color:var(--on-dark);border-radius:18px;padding:clamp(28px,4vw,40px);display:grid;gap:14px;justify-items:start;min-width:0}
+.portal-card > svg{position:absolute;right:-60px;top:-60px;width:220px;color:var(--gold);opacity:.25;pointer-events:none}
+.portal-card h3{font-size:1.7rem;position:relative}
+.portal-card p{color:var(--on-dark-muted);position:relative}
+.portal-card .btn{position:relative}
+.portal-card .small{font-size:.9rem}
+.portal-card a:not(.btn){color:var(--gold)}
+@media(max-width:760px){.portal{grid-template-columns:1fr}}
 /* ticker: service area */
 .ticker{background:var(--gold);color:var(--ink);overflow:hidden}
 .ticker .track{display:flex;justify-content:center}
@@ -318,7 +334,7 @@ p{margin:0}
       <svg aria-hidden="true"><use href="#rose"/></svg><span>Villa St. Rose</span>
     </a>
     <nav aria-label="Main">
-      <a href="#why">Why us</a><a href="#included">What’s included</a><a href="#mission">Our mission</a><a href="#reviews">Reviews</a>
+      <a href="#why">Why us</a><a href="#included">What’s included</a><a href="#mission">Our mission</a><a href="#reviews">Reviews</a><a href="#residents">Pay rent</a>
     </nav>
     <a class="btn btn-plum" href="#apply">Start assessment</a>
   </div>
@@ -511,6 +527,29 @@ p{margin:0}
     </div>
   </div>
 </section>
+
+<section class="band" id="residents">
+  <div class="wrap portal">
+    <div class="head">
+      <span class="eyebrow">For current residents</span>
+      <h2>Resident Portal</h2>
+      <p class="lede">Sign in to pay rent, set up autopay, check your balance, and send maintenance requests.</p>
+      <ol class="portal-steps">
+        <li><b>New resident?</b> Look for your invitation email from Innago, open the link, and create your password.</li>
+        <li><b>Sign in</b> here or in the Innago app with that email and password.</li>
+        <li><b>Turn on autopay</b> so rent is paid on time each month.</li>
+      </ol>
+    </div>
+    <div class="portal-card">
+      <svg aria-hidden="true" viewBox="0 0 104 104"><use href="#rose"/></svg>
+      <h3>Pay your rent</h3>
+      <p>Secure sign-in through Innago, our payment partner.</p>
+      <a class="btn btn-gold" href="https://my.innago.com" target="_blank" rel="noopener">Sign in to pay rent</a>
+      <p class="small">On your phone? Get the Innago app from the <a href="https://apps.apple.com/us/app/innago-landlord-tenant-app/id1499627499" target="_blank" rel="noopener">App Store</a> or <a href="https://play.google.com/store/search?q=innago&amp;c=apps" target="_blank" rel="noopener">Google Play</a>.</p>
+      <p class="small">Questions about your account? Call <span style="white-space:nowrap">504-249-8951</span>.</p>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer class="foot">
@@ -524,6 +563,7 @@ p{margin:0}
       <ul>
         <li><a href="https://www.ssa.gov/ssi/start.html" target="_blank" rel="noopener">Apply for government assistance (SSI)</a></li>
         <li><a href="https://www.dcfs.louisiana.gov/page/snap-how-to-apply" target="_blank" rel="noopener">Apply for SNAP</a></li>
+        <li><a href="https://my.innago.com" target="_blank" rel="noopener">Resident sign-in (pay rent)</a></li>
         <li><a href="https://www.facebook.com/profile.php?id=100089786950997" target="_blank" rel="noopener">Follow us on Facebook</a></li>
       </ul>
     </div>
@@ -617,7 +657,7 @@ p{margin:0}
       } else { el.classList.add(el.classList.contains('ph') ? 'rise' : 'up'); }
     });
   }, {threshold:.18});
-  document.querySelectorAll('.ph, .reason h3, .reason p, .incl li, .review, .steps li, .art figure, .shot, .bridge, .motto, .resilience').forEach(function(el){
+  document.querySelectorAll('.ph, .reason h3, .reason p, .incl li, .review, .steps li, .art figure, .shot, .bridge, .motto, .resilience, .portal-card, .portal-steps li').forEach(function(el){
     var sibs = Array.prototype.indexOf.call(el.parentNode.children, el);
     el.style.setProperty('--d', (sibs % 4)*110 + 'ms'); io.observe(el);
   });
