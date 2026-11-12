@@ -12,7 +12,7 @@
 :root{
   color-scheme:light;
   --ink:#0d0a10; --plum:#662986; --plum-deep:#2a1038; --plum-soft:#8a4fa8;
-  --gold:#E2A62B; --alert:#ff4a4a; --gold-deep:#b97f10;
+  --gold:#E2A62B; --alert:#ff2626; --gold-deep:#b97f10;
   --paper:#fbf8fc; --mist:#f0e8f4; --line:#dfd2e6;
   --text:#1c1522; --muted:#5d5266; --on-dark:#f6eefa; --on-dark-muted:#c9b9d3;
   --display:"Young Serif",Georgia,"Times New Roman",serif;
@@ -64,7 +64,8 @@ p{margin:0}
 .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(44px,7vw,88px) clamp(84px,10vw,120px)}
 .hero .eyebrow{color:var(--gold)}
 .hero h1{font-size:clamp(2.3rem,6.4vw,4.3rem);line-height:1.2}
-.hero h1 em{font-style:normal;color:var(--alert)}
+.hero h1 em{font-style:normal;color:var(--alert);-webkit-text-fill-color:var(--alert);text-decoration-line:underline;-webkit-text-decoration-line:underline;text-decoration-thickness:4px;text-decoration-color:var(--alert);-webkit-text-decoration-color:var(--alert);text-underline-offset:.14em;text-decoration-skip-ink:none}
+.hero h1 em .w{color:var(--alert)}
 .hero .sub{font-size:1.15rem;color:var(--on-dark-muted);max-width:52ch;margin-top:18px}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .facts{display:flex;flex-wrap:wrap;gap:10px 22px;margin:30px 0 0;padding:0;list-style:none;font-weight:600;font-size:.95rem}
@@ -253,9 +254,9 @@ p{margin:0}
   /* headline rises word by word, then the gold promise underlines itself */
   .hero h1 .w{display:inline-block;animation:word .75s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*70ms + 150ms + var(--intro))}
   .hero h1 em .w{display:inline}
-  .hero h1 em{text-decoration:underline 3px transparent;text-underline-offset:.16em;text-decoration-skip-ink:none;animation:underline .9s calc(1.6s + var(--intro)) ease-out forwards}
+  .hero h1 em{animation:underlineIn .9s calc(1.6s + var(--intro)) ease-out both}
   @keyframes word{from{opacity:0;transform:translateY(.7em) rotate(4deg)}}
-  @keyframes underline{to{text-decoration-color:var(--gold)}}
+  @keyframes underlineIn{from{text-decoration-color:transparent}}
 
   /* the rose draws itself petal by petal, then turns slowly */
   .hero-art .rose-big{stroke-dasharray:1;animation:draw 3.4s calc(.3s + var(--intro)) ease-out both,spin 160s linear infinite}
