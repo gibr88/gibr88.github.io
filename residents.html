@@ -58,7 +58,22 @@ p{margin:0}
 .top nav a:hover{color:var(--plum)}
 .top .btn{padding:12px 18px;font-size:.92rem}
 .top nav a{white-space:nowrap}
-@media(max-width:1080px){.top nav{display:none}}
+.top .wrap{flex-wrap:wrap}
+.top nav a.tab-key{background:var(--gold);color:var(--ink);padding:8px 14px;border-radius:999px}
+.top nav a.tab-key:hover{background:#f0b63f;color:var(--ink)}
+.top nav{align-items:center}
+.top nav a.tab-key[aria-current],.top nav a.tab-key[aria-current]:hover{text-decoration:none;color:var(--ink);background:var(--gold);outline:2px solid var(--ink);outline-offset:-2px}
+@media(max-width:1080px){
+  .brand img{height:52px}
+  .top .wrap{row-gap:8px;padding-block:8px}
+  .top nav{display:flex;order:3;width:100%;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+  .top nav::-webkit-scrollbar{display:none}
+  .top nav a{font-size:.88rem;padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:var(--paper)}
+  .top nav a.tab-key{order:-2;border-color:var(--gold)}
+  .top nav a.tab-res{order:-1}
+  .top nav a[aria-current]:not(.tab-key){border-color:var(--plum);text-decoration:none}
+  section[id],main[id]{scroll-margin-top:150px}
+}
 
 /* hero */
 .hero{background:radial-gradient(90% 120% at 85% 0%,var(--plum) 0%,var(--plum-deep) 45%,var(--ink) 100%);color:var(--on-dark);position:relative;overflow:hidden}
@@ -374,7 +389,7 @@ section[id],main[id]{scroll-margin-top:96px}
       <svg aria-hidden="true"><use href="#rose"/></svg><span>Villa St. Rose</span>
     </a>
     <nav aria-label="Main">
-      <a href="index.html#why">Why us</a><a href="index.html#included">What’s included</a><a href="index.html#mission">Our mission</a><a href="index.html#reviews">Reviews</a><a href="residents.html" aria-current="page">Residents</a><a href="partners.html">Partners</a>
+      <a href="index.html#why">Why us</a><a href="index.html#included">What’s included</a><a href="index.html#mission">Our mission</a><a href="index.html#reviews">Reviews</a><a class="tab-res" href="residents.html" aria-current="page">Residents</a><a class="tab-key" href="partners.html">Referral Partners</a>
     </nav>
     <a class="btn btn-plum" href="index.html#apply">Start assessment</a>
   </div>
@@ -477,7 +492,6 @@ section[id],main[id]{scroll-margin-top:96px}
         <li><a href="https://www.ssa.gov/ssi/start.html" target="_blank" rel="noopener">Apply for government assistance (SSI)</a></li>
         <li><a href="https://www.dcfs.louisiana.gov/page/snap-how-to-apply" target="_blank" rel="noopener">Apply for SNAP</a></li>
         <li><a href="index.html">Villa St. Rose home</a></li>
-        <li><a href="partners.html">For referral partners</a></li>
         <li><a href="https://www.facebook.com/profile.php?id=100089786950997" target="_blank" rel="noopener">Follow us on Facebook</a></li>
       </ul>
     </div>
